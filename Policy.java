@@ -1,15 +1,20 @@
+/**
+ * The Policy class models an insurance policy for one person.
+ * It includes personal information, BMI calculation, and policy price calculation.
+ */
 public class Policy {
+    // Instance variables
     private int policyNumber;
     private String providerName;
     private String policyholderFirstName;
     private String policyholderLastName;
     private int policyholderAge;
-    private String smokingStatus;
-    private double height;
-    private double weight;
+    private String smokingStatus; // "smoker" or "non-smoker"
+    private double height; // in inches
+    private double weight; // in pounds
 
     // No-arg constructor
-    public Policyjava() {
+    public Policy() {
         policyNumber = 0;
         providerName = "";
         policyholderFirstName = "";
@@ -21,8 +26,8 @@ public class Policy {
     }
 
     // Full constructor
-    public Policyjava(int policyjavaNumber, String providerName, String firstName, String lastName, int age,
-                  String smokingStatus, double height, double weight) {
+    public Policy(int policyNumber, String providerName, String firstName, String lastName,
+                  int age, String smokingStatus, double height, double weight) {
         this.policyNumber = policyNumber;
         this.providerName = providerName;
         this.policyholderFirstName = firstName;
@@ -33,65 +38,66 @@ public class Policy {
         this.weight = weight;
     }
 
-    // Getters and setters
+    // Getters
     public int getPolicyNumber() {
         return policyNumber;
-    }
-
-    public void setPolicyNumber(int policyNumber) {
-        this.policyNumber = policyNumber;
     }
 
     public String getProviderName() {
         return providerName;
     }
 
-    public void setProviderName(String providerName) {
-        this.providerName = providerName;
-    }
-
     public String getPolicyholderFirstName() {
         return policyholderFirstName;
-    }
-
-    public void setPolicyholderFirstName(String firstName) {
-        this.policyholderFirstName = firstName;
     }
 
     public String getPolicyholderLastName() {
         return policyholderLastName;
     }
 
-    public void setPolicyholderLastName(String lastName) {
-        this.policyholderLastName = lastName;
-    }
-
     public int getPolicyholderAge() {
         return policyholderAge;
-    }
-
-    public void setPolicyholderAge(int age) {
-        this.policyholderAge = age;
     }
 
     public String getSmokingStatus() {
         return smokingStatus;
     }
 
-    public void setSmokingStatus(String smokingStatus) {
-        this.smokingStatus = smokingStatus;
-    }
-
     public double getHeight() {
         return height;
     }
 
-    public void setHeight(double height) {
-        this.height = height;
-    }
-
     public double getWeight() {
         return weight;
+    }
+
+    // Setters
+    public void setPolicyNumber(int policyNumber) {
+        this.policyNumber = policyNumber;
+    }
+
+    public void setProviderName(String providerName) {
+        this.providerName = providerName;
+    }
+
+    public void setPolicyholderFirstName(String firstName) {
+        this.policyholderFirstName = firstName;
+    }
+
+    public void setPolicyholderLastName(String lastName) {
+        this.policyholderLastName = lastName;
+    }
+
+    public void setPolicyholderAge(int age) {
+        this.policyholderAge = age;
+    }
+
+    public void setSmokingStatus(String status) {
+        this.smokingStatus = status;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
     }
 
     public void setWeight(double weight) {
@@ -100,9 +106,7 @@ public class Policy {
 
     // Calculate BMI
     public double calculateBMI() {
-        if (height == 0) {
-            return 0;
-        }
+        if (height == 0) return 0;
         return (weight * 703) / (height * height);
     }
 
@@ -120,7 +124,7 @@ public class Policy {
 
         double bmi = calculateBMI();
         if (bmi > 35) {
-            price += (bmi - 35) * 20;
+            price += (bmi - 35) * 20.0;
         }
 
         return price;
