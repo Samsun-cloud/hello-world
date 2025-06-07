@@ -42,7 +42,7 @@ public class Policy {
     public int getPolicyNumber() {
         return policyNumber;
     }
-
+/*
     public String getProviderName() {
         return providerName;
     }
@@ -128,5 +128,5 @@ public class Policy {
         }
 
         return price;
-    }
+    }*/
 }
